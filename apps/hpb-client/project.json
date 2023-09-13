@@ -15,10 +15,7 @@
         "main": "apps/hpb-client/src/main.ts",
         "polyfills": ["zone.js"],
         "tsConfig": "apps/hpb-client/tsconfig.app.json",
-        "assets": [
-          "apps/hpb-client/src/favicon.ico",
-          "apps/hpb-client/src/assets"
-        ],
+        "assets": ["apps/hpb-client/src/favicon.ico", "apps/hpb-client/src/assets"],
         "styles": ["apps/hpb-client/src/styles.scss"],
         "scripts": []
       },
@@ -71,10 +68,7 @@
       "executor": "@nx/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": [
-          "apps/hpb-client/**/*.ts",
-          "apps/hpb-client/**/*.html"
-        ]
+        "lintFilePatterns": ["apps/hpb-client/**/*.ts", "apps/hpb-client/**/*.html"]
       }
     },
     "test": {
