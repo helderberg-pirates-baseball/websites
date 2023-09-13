@@ -28,6 +28,8 @@
     "@angular/cli": "~16.2.0",
     "@angular/compiler-cli": "~16.2.0",
     "@angular/language-service": "~16.2.0",
+    "@nx-squeezer/renovate": "^2.0.3",
+    "@nx-squeezer/workspace": "^4.0.4",
     "@nx/eslint-plugin": "16.8.1",
     "@nx/jest": "16.8.1",
     "@nx/js": "16.8.1",
