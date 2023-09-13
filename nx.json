@@ -33,7 +33,7 @@
     }
   },
   "namedInputs": {
-    "default": ["{projectRoot}/**/*", "sharedGlobals", "ci"],
+    "default": ["{projectRoot}/**/*", "sharedGlobals", "ci", "codecov"],
     "production": [
       "default",
       "!{projectRoot}/**/?(*.)+(spec|test).[jt]s?(x)?(.snap)",
@@ -45,7 +45,8 @@
       "!{projectRoot}/eslint.config.js"
     ],
     "sharedGlobals": [],
-    "ci": ["{workspaceRoot}/.github/workflows/*.yml"]
+    "ci": ["{workspaceRoot}/.github/workflows/*.yml"],
+    "codecov": ["{workspaceRoot}/.codecov.yml"]
   },
   "generators": {
     "@nx/angular:application": {
