@@ -1,0 +1,111 @@
+name: CI
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  npm:
+    name: NPM
+    runs-on: ubuntu-latest
+    env:
+      NX_CLOUD_AUTH_TOKEN: ${{ secrets.NX_CLOUD_ACCESS_TOKEN }}
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3.4.1
+        with:
+          node-version: 18.x
+
+      - name: NPM
+        uses: ng-easy/npm-setup@v2.0.10
+
+  build:
+    name: Build
+    needs: [npm]
+    runs-on: ubuntu-latest
+    env:
+      NX_CLOUD_AUTH_TOKEN: ${{ secrets.NX_CLOUD_ACCESS_TOKEN }}
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Fetch all branches and commits so that Nx affected has a base to compare against
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3.4.1
+        with:
+          node-version: 18.x
+
+      - name: NPM
+        uses: ng-easy/npm-setup@v2.0.10
+        with:
+          nx-key: build
+
+      - name: Nx Set SHAs
+        uses: nrwl/nx-set-shas@v3.0.0
+
+      - name: Build
+        run: npx nx affected --target=build --parallel=3
+
+  lint:
+    name: Lint
+    needs: [npm]
+    runs-on: ubuntu-latest
+    env:
+      NX_CLOUD_AUTH_TOKEN: ${{ secrets.NX_CLOUD_ACCESS_TOKEN }}
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Fetch all branches and commits so that Nx affected has a base to compare against
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3.4.1
+        with:
+          node-version: 18.x
+
+      - name: NPM
+        uses: ng-easy/npm-setup@v2.0.10
+        with:
+          nx-key: lint
+
+      - name: Nx Set SHAs
+        uses: nrwl/nx-set-shas@v3.0.0
+
+      - name: Lint
+        run: npx nx affected --target=lint --parallel=3
+
+  test:
+    name: Test
+    needs: [npm]
+    runs-on: ubuntu-latest
+    env:
+      NX_CLOUD_AUTH_TOKEN: ${{ secrets.NX_CLOUD_ACCESS_TOKEN }}
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Fetch all branches and commits so that Nx affected has a base to compare against
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3.4.1
+        with:
+          node-version: 18.x
+
+      - name: NPM
+        uses: ng-easy/npm-setup@v2.0.10
+        with:
+          nx-key: test
+
+      - name: Nx Set SHAs
+        uses: nrwl/nx-set-shas@v3.0.0
+
+      - name: Test
+        run: npx nx affected --target=test --parallel=3
