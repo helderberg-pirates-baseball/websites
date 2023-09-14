@@ -4,6 +4,7 @@
   "license": "",
   "scripts": {
     "prepare": "husky install",
+    "serve": "nx run hpb-client:serve",
     "nx": "nx"
   },
   "private": true,
