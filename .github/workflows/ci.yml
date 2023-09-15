@@ -7,6 +7,9 @@ on:
     branches:
       - main
 
+env:
+  NX_CLOUD_ACCESS_TOKEN: ${{ secrets.NX_CLOUD_ACCESS_TOKEN }}
+
 jobs:
   npm:
     name: 'Prepare NPM'
@@ -34,8 +37,6 @@ jobs:
     name: '[Nx] Main'
     needs: [npm]
     uses: nrwl/ci/.github/workflows/nx-cloud-main.yml@v0.13.0
-    env:
-      NX_CLOUD_ACCESS_TOKEN: ${{ secrets.NX_CLOUD_ACCESS_TOKEN }}
     with:
       number-of-agents: 3
       parallel-commands: |
@@ -46,8 +47,6 @@ jobs:
   agents:
     name: '[Nx] Agents'
     needs: [npm]
-    env:
-      NX_CLOUD_ACCESS_TOKEN: ${{ secrets.NX_CLOUD_ACCESS_TOKEN }}
     uses: nrwl/ci/.github/workflows/nx-cloud-agents.yml@v0.13.0
     with:
       number-of-agents: 3
@@ -56,8 +55,6 @@ jobs:
     name: '[Nx] Test All'
     needs: [npm]
     runs-on: ubuntu-latest
-    env:
-      NX_CLOUD_ACCESS_TOKEN: ${{ secrets.NX_CLOUD_ACCESS_TOKEN }}
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
