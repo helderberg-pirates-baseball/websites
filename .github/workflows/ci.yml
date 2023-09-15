@@ -24,7 +24,7 @@ jobs:
           node-version: 18.x
 
       - name: NPM
-        uses: ng-easy/npm-setup@v2.0.10
+        uses: ng-easy/npm-setup@v3
 
   build:
     name: '[Nx] Build'
@@ -44,7 +44,7 @@ jobs:
           node-version: 18.x
 
       - name: NPM
-        uses: ng-easy/npm-setup@v2.0.10
+        uses: ng-easy/npm-setup@v3
         with:
           nx-key: build
 
@@ -72,7 +72,7 @@ jobs:
           node-version: 18.x
 
       - name: NPM
-        uses: ng-easy/npm-setup@v2.0.10
+        uses: ng-easy/npm-setup@v3
         with:
           nx-key: lint
 
@@ -100,7 +100,7 @@ jobs:
           node-version: 18.x
 
       - name: NPM
-        uses: ng-easy/npm-setup@v2.0.10
+        uses: ng-easy/npm-setup@v3
         with:
           nx-key: test
 
