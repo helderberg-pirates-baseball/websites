@@ -18,72 +18,40 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v4
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v3.4.1
+      - uses: volta-cli/action@v4
         with:
-          node-version: 18.x
+          package-json-path: '${{ github.workspace }}/package.json'
 
-      - name: NPM
-        uses: ng-easy/npm-setup@v3
+      - name: Use the package manager cache if available
+        uses: actions/cache@v3
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-
 
-  build:
-    name: '[Nx] Build'
+      - name: Install dependencies
+        run: npm ci
+
+  main:
+    name: '[Nx] Main'
     needs: [npm]
-    runs-on: ubuntu-latest
-    env:
-      NX_CLOUD_AUTH_TOKEN: ${{ secrets.NX_CLOUD_ACCESS_TOKEN }}
-    steps:
-      - name: Checkout repo
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0 # Fetch all branches and commits so that Nx affected has a base to compare against
+    uses: nrwl/ci/.github/workflows/nx-cloud-main.yml@v0.13.0
+    with:
+      number-of-agents: 3
+      parallel-commands: |
+        npx nx-cloud record -- npx nx format:check
+      parallel-commands-on-agents: |
+        npx nx affected -t lint --parallel=3 & npx nx affected -t test --parallel=3 --configuration=ci & npx nx affected -t build --parallel=3
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v3.4.1
-        with:
-          node-version: 18.x
-
-      - name: NPM
-        uses: ng-easy/npm-setup@v3
-        with:
-          nx-key: build
-
-      - name: Nx Set SHAs
-        uses: nrwl/nx-set-shas@v3.0.0
-
-      - name: Build
-        run: npx nx affected --target=build --parallel=3
-
-  lint:
-    name: '[Nx] Lint'
-    needs: [npm]
-    runs-on: ubuntu-latest
-    env:
-      NX_CLOUD_AUTH_TOKEN: ${{ secrets.NX_CLOUD_ACCESS_TOKEN }}
-    steps:
-      - name: Checkout repo
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0 # Fetch all branches and commits so that Nx affected has a base to compare against
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v3.4.1
-        with:
-          node-version: 18.x
-
-      - name: NPM
-        uses: ng-easy/npm-setup@v3
-        with:
-          nx-key: lint
-
-      - name: Nx Set SHAs
-        uses: nrwl/nx-set-shas@v3.0.0
-
-      - name: Lint
-        run: npx nx affected --target=lint --parallel=3
+  agents:
+    name: '[Nx] Agents'
+    uses: nrwl/ci/.github/workflows/nx-cloud-agents.yml@v0.13.0
+    with:
+      number-of-agents: 3
 
   test:
-    name: '[Nx] Test'
+    name: '[Nx] Test All'
     needs: [npm]
     runs-on: ubuntu-latest
     env:
@@ -94,21 +62,23 @@ jobs:
         with:
           fetch-depth: 0 # Fetch all branches and commits so that Nx affected has a base to compare against
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v3.4.1
+      - uses: volta-cli/action@v4
         with:
-          node-version: 18.x
+          package-json-path: '${{ github.workspace }}/package.json'
 
-      - name: NPM
-        uses: ng-easy/npm-setup@v3
+      - name: Use the package manager cache if available
+        uses: actions/cache@v3
         with:
-          nx-key: test
+          path: ~/.npm
+          key: ${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-
 
-      - name: Nx Set SHAs
-        uses: nrwl/nx-set-shas@v3.0.0
+      - name: Install dependencies
+        run: npm ci
 
       - name: Test
-        run: npx nx affected --target=test --parallel=3
+        run: npx nx run-many --targets=test --all --parallel --maxParallel=3
 
       - name: Codecov
         uses: codecov/codecov-action@v3.1.0
