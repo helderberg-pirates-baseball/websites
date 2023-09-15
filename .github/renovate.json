@@ -1,0 +1,13 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:recommended",
+    ":label(dependencies)",
+    "github>nx-squeezer/squeezer",
+    "github>nx-squeezer/squeezer:nxMonorepo",
+    "github>nx-squeezer/squeezer:tooling",
+    ":assignee(renovate)"
+  ],
+  "automerge": true,
+  "automergeStrategy": "squash"
+}
