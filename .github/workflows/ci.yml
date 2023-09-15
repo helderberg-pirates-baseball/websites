@@ -9,7 +9,7 @@ on:
 
 jobs:
   npm:
-    name: NPM
+    name: 'Prepare NPM'
     runs-on: ubuntu-latest
     env:
       NX_CLOUD_AUTH_TOKEN: ${{ secrets.NX_CLOUD_ACCESS_TOKEN }}
@@ -27,7 +27,7 @@ jobs:
         uses: ng-easy/npm-setup@v2.0.10
 
   build:
-    name: Build
+    name: '[Nx] Build'
     needs: [npm]
     runs-on: ubuntu-latest
     env:
@@ -55,7 +55,7 @@ jobs:
         run: npx nx affected --target=build --parallel=3
 
   lint:
-    name: Lint
+    name: '[Nx] Lint'
     needs: [npm]
     runs-on: ubuntu-latest
     env:
@@ -83,7 +83,7 @@ jobs:
         run: npx nx affected --target=lint --parallel=3
 
   test:
-    name: Test
+    name: '[Nx] Test'
     needs: [npm]
     runs-on: ubuntu-latest
     env:
