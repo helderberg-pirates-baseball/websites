@@ -1,5 +1,5 @@
 module.exports = {
-  repositories: ['git@github.com:helderberg-pirates-baseball/websites'],
+  repositories: ['helderberg-pirates-baseball/websites'],
   branchPrefix: 'renovate-github/',
   dryRun: null,
   gitAuthor: 'Renovate Bot GitHub <bot@renovateapp.com>',
