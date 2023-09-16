@@ -62,4 +62,4 @@ Nx comes with local caching already built-in (check your `nx.json`). On CI you m
 
 ## Contributors
 
-[![contributors](https://contrib.rocks/image?repo=git@github.com:helderberg-pirates-baseball/websites)](https://github.com/git@github.com:helderberg-pirates-baseball/websites/graphs/contributors)
+[![contributors](https://contrib.rocks/image?repo=helderberg-pirates-baseball/websites)](https://github.com/helderberg-pirates-baseball/websites/graphs/contributors)
