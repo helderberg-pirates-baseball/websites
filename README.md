@@ -1,6 +1,6 @@
 # HelderbergPiratesBaseball
 
-[![CI](git@github.com:helderberg-pirates-baseball/websites/actions/workflows/ci.yml/badge.svg)](git@github.com:helderberg-pirates-baseball/websites/actions/workflows/ci.yml)
+[![CI](https://github.com/helderberg-pirates-baseball/websites/actions/workflows/ci.yml/badge.svg)](https://github.com/helderberg-pirates-baseball/websites/actions/workflows/ci.yml)
 [![codecov](https://codecov.io/gh/git@github.com:helderberg-pirates-baseball/websites/branch/main/graph/badge.svg)](https://codecov.io/gh/git@github.com:helderberg-pirates-baseball/websites)
 ![renovate](https://img.shields.io/badge/maintaied%20with-renovate-blue?logo=renovatebot)
 
