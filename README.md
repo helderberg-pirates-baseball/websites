@@ -1,8 +1,8 @@
 # HelderbergPiratesBaseball
 
-[![CI](git@github.com:helderberg-pirates-baseball/websites/actions/workflows/ci.yml/badge.svg)](git@github.com:helderberg-pirates-baseball/websites/actions/workflows/ci.yml)
-[![codecov](https://codecov.io/gh/git@github.com:helderberg-pirates-baseball/websites/branch/main/graph/badge.svg)](https://codecov.io/gh/git@github.com:helderberg-pirates-baseball/websites)
-![renovate](https://img.shields.io/badge/maintaied%20with-renovate-blue?logo=renovatebot)
+[![CI](https://github.com/helderberg-pirates-baseball/websites/actions/workflows/ci.yml/badge.svg)](https://github.com/helderberg-pirates-baseball/websites/actions/workflows/ci.yml)
+[![codecov](https://codecov.io/gh/helderberg-pirates-baseball/websites/branch/main/graph/badge.svg)](https://codecov.io/gh/helderberg-pirates-baseball/websites)
+![renovate](https://img.shields.io/badge/maintained%20with-renovate-blue?logo=renovatebot)
 
 <a alt="Nx logo" href="https://nx.dev" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="45"></a>
 
@@ -62,4 +62,4 @@ Nx comes with local caching already built-in (check your `nx.json`). On CI you m
 
 ## Contributors
 
-[![contributors](https://contrib.rocks/image?repo=git@github.com:helderberg-pirates-baseball/websites)](https://github.com/git@github.com:helderberg-pirates-baseball/websites/graphs/contributors)
+[![contributors](https://contrib.rocks/image?repo=helderberg-pirates-baseball/websites)](https://github.com/helderberg-pirates-baseball/websites/graphs/contributors)
