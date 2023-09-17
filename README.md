@@ -3,6 +3,7 @@
 [![CI](https://github.com/helderberg-pirates-baseball/websites/actions/workflows/ci.yml/badge.svg)](https://github.com/helderberg-pirates-baseball/websites/actions/workflows/ci.yml)
 [![codecov](https://codecov.io/gh/helderberg-pirates-baseball/websites/branch/main/graph/badge.svg)](https://codecov.io/gh/helderberg-pirates-baseball/websites)
 ![renovate](https://img.shields.io/badge/maintained%20with-renovate-blue?logo=renovatebot)
+[![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
 
 <a alt="Nx logo" href="https://nx.dev" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="45"></a>
 
