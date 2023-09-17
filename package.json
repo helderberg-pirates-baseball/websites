@@ -5,6 +5,7 @@
   "scripts": {
     "prepare": "husky install && commitizen init cz-conventional-changelog --save-dev --save-exact",
     "serve": "nx run hpb-client:serve",
+    "create-commit": "git stage . && cz",
     "nx": "nx"
   },
   "private": true,
