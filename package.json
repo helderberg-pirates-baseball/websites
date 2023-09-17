@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "license": "",
   "scripts": {
-    "prepare": "husky install",
+    "prepare": "husky install && commitizen init cz-conventional-changelog --save-dev --save-exact",
     "serve": "nx run hpb-client:serve",
     "nx": "nx"
   },
@@ -34,6 +34,8 @@
     "@angular/language-service": "16.2.4",
     "@commitlint/cli": "17.7.1",
     "@commitlint/config-conventional": "17.7.0",
+    "@commitlint/config-nx-scopes": "^17.6.4",
+    "@commitlint/cz-commitlint": "^17.7.1",
     "@nx-squeezer/renovate": "^2.0.3",
     "@nx-squeezer/workspace": "^4.0.4",
     "@nx/eslint-plugin": "16.8.1",
@@ -46,6 +48,8 @@
     "@types/node": "18.17.16",
     "@typescript-eslint/eslint-plugin": "5.62.0",
     "@typescript-eslint/parser": "5.62.0",
+    "commitizen": "^4.3.0",
+    "cz-conventional-changelog": "^3.3.0",
     "eslint": "~8.49.0",
     "eslint-config-prettier": "8.10.0",
     "eslint-import-resolver-typescript": "3.6.0",
@@ -65,5 +69,10 @@
     "ts-jest": "^29.1.1",
     "ts-node": "10.9.1",
     "typescript": "~5.1.3"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }
