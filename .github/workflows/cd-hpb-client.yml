@@ -1,0 +1,46 @@
+name: CD hpb-client
+
+on:
+  push:
+    branches:
+      - websites-27-add-deploy
+      - main
+
+jobs:
+  build_and_deploy_job:
+    runs-on: ubuntu-latest
+    name: Build and Deploy Job
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: true
+          fetch-depth: 0
+
+      - name: Use the package manager cache if available
+        uses: actions/cache@v3
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build App
+        run: |
+          npx nx run hpb-client:build:production
+
+      - name: Deploy
+        id: builddeploy
+        uses: Azure/static-web-apps-deploy@v1
+        with:
+          azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_LIVELY_PLANT_014CF8603 }}
+          repo_token: ${{ secrets.GITHUB_TOKEN }} # Used for Github integrations (i.e. PR comments)
+          action: 'upload'
+          ###### Repository/Build Configurations - These values can be configured to match your app requirements. ######
+          # For more information regarding Static Web App workflow configurations, please visit: https://aka.ms/swaworkflowconfig
+          app_location: '/dist/apps/hpb-client' # App source code path
+          skip_app_build: true
+          api_location: '' # Api source code path - optional
+          ###### End of Repository/Build Configurations ######
