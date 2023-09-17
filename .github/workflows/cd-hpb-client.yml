@@ -3,7 +3,6 @@ name: CD hpb-client
 on:
   push:
     branches:
-      - websites-27-add-deploy
       - main
 
 jobs:
@@ -28,6 +27,8 @@ jobs:
         run: npm ci
 
       - name: Build App
+        env:
+          NX_CLOUD_ACCESS_TOKEN: ${{ secrets.NX_CLOUD_ACCESS_TOKEN }}
         run: |
           npx nx run hpb-client:build:production
 
