@@ -15,9 +15,15 @@
         "main": "apps/hpb-client/src/main.ts",
         "polyfills": ["zone.js"],
         "tsConfig": "apps/hpb-client/tsconfig.app.json",
-        "assets": ["apps/hpb-client/src/favicon.ico", "apps/hpb-client/src/assets"],
+        "assets": [
+          "apps/hpb-client/src/favicon.ico",
+          "apps/hpb-client/src/assets",
+          "apps/hpb-client/src/manifest.webmanifest"
+        ],
         "styles": ["apps/hpb-client/src/styles.scss"],
-        "scripts": []
+        "scripts": [],
+        "serviceWorker": true,
+        "ngswConfigPath": "apps/hpb-client/ngsw-config.json"
       },
       "configurations": {
         "production": {
