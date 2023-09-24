@@ -48,6 +48,15 @@
           "extractLicenses": false,
           "sourceMap": true,
           "namedChunks": true
+        },
+        "stats": {
+          "statsJson": true,
+          "buildOptimizer": false,
+          "optimization": false,
+          "vendorChunk": true,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true
         }
       },
       "defaultConfiguration": "production"
