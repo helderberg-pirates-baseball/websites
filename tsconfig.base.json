@@ -15,7 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@helderberg-pirates-baseball/shared/styles": ["libs/shared/styles/src/index.ts"]
+      "@helderberg-pirates-baseball/shared/styles": ["libs/shared/styles/src/index.ts"],
+      "@helderberg-pirates-baseball/shared/ui": ["libs/shared/ui/src/index.ts"]
     },
     "forceConsistentCasingInFileNames": true,
     "noImplicitAny": true,
