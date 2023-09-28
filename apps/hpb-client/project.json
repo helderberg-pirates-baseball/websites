@@ -20,7 +20,7 @@
           "apps/hpb-client/src/assets",
           "apps/hpb-client/src/manifest.webmanifest"
         ],
-        "styles": ["apps/hpb-client/src/styles.scss"],
+        "styles": ["libs/shared/styles/src/lib/theme.scss", "apps/hpb-client/src/styles.scss"],
         "scripts": [],
         "serviceWorker": true,
         "ngswConfigPath": "apps/hpb-client/ngsw-config.json"
@@ -42,6 +42,15 @@
           "outputHashing": "all"
         },
         "development": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "vendorChunk": true,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true
+        },
+        "stats": {
+          "statsJson": true,
           "buildOptimizer": false,
           "optimization": false,
           "vendorChunk": true,
