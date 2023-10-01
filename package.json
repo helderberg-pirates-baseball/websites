@@ -37,7 +37,7 @@
     "@angular/compiler-cli": "16.2.6",
     "@angular/language-service": "16.2.6",
     "@angular/pwa": "^16.2.3",
-    "@commitlint/cli": "17.7.1",
+    "@commitlint/cli": "17.7.2",
     "@commitlint/config-conventional": "17.7.0",
     "@commitlint/config-nx-scopes": "^17.6.4",
     "@nx-squeezer/renovate": "^2.0.3",
