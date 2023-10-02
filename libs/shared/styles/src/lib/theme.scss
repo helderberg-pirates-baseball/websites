@@ -7,7 +7,6 @@
 @include mat.all-component-themes($dark-theme);
 
 .light-theme {
-  @include mat.core-theme($light-theme);
   @include mat.all-component-colors($light-theme);
 }
 
