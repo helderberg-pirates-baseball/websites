@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "license": "",
   "scripts": {
-    "prepare": "husky install",
+    "prepare": "husky nx-cloud.envinstall",
     "serve": "nx run hpb-client:serve",
     "nx": "nx",
     "analyze:hpb-client": "nx run hpb-client:build:stats && webpack-bundle-analyzer dist/apps/hpb-client/stats.json",
