@@ -29,8 +29,10 @@ export class HpbThemeService {
     }
   }
 
-  init(): void {
-    this.setTheme(this.getTheme());
+  init(): HpbTheme {
+    const theme = this.getTheme();
+    this.setTheme(theme);
+    return theme;
   }
 
   toggleTheme(): void {
