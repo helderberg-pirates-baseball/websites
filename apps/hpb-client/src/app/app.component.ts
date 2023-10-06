@@ -36,11 +36,11 @@ export class AppComponent implements OnInit {
   }
 
   set darkMode(value: boolean) {
-    console.log('darkMode', value);
     this._theme.toggleTheme();
   }
 
   ngOnInit(): void {
-    this._theme.init();
+    const currentTheme = this._theme.init();
+    this._darkMode = currentTheme === 'dark';
   }
 }
