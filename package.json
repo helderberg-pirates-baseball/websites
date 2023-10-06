@@ -7,7 +7,7 @@
     "serve": "nx run hpb-client:serve",
     "nx": "nx",
     "analyze:hpb-client": "nx run hpb-client:build:stats && webpack-bundle-analyzer dist/apps/hpb-client/stats.json",
-    "cz": "git add . && cz"
+    "cz": "git add -i && cz"
   },
   "private": true,
   "dependencies": {
