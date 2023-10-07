@@ -96,6 +96,7 @@
       },
       "configurations": {
         "ci": {
+          "coverageReporters": ["lcov"],
           "ci": true,
           "codeCoverage": true
         }
