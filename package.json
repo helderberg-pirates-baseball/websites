@@ -3,10 +3,11 @@
   "version": "0.0.0",
   "license": "",
   "scripts": {
-    "prepare": "husky install",
+    "prepare": "husky nx-cloud.envinstall",
     "serve": "nx run hpb-client:serve",
     "nx": "nx",
-    "analyze:hpb-client": "nx run hpb-client:build:stats && webpack-bundle-analyzer dist/apps/hpb-client/stats.json"
+    "analyze:hpb-client": "nx run hpb-client:build:stats && webpack-bundle-analyzer dist/apps/hpb-client/stats.json",
+    "cz": "git add -i && cz"
   },
   "private": true,
   "dependencies": {
@@ -52,6 +53,8 @@
     "@types/node": "18.18.3",
     "@typescript-eslint/eslint-plugin": "5.62.0",
     "@typescript-eslint/parser": "5.62.0",
+    "commitizen": "^4.3.0",
+    "cz-conventional-changelog": "^3.3.0",
     "eslint": "~8.50.0",
     "eslint-config-prettier": "8.10.0",
     "eslint-import-resolver-typescript": "3.6.1",

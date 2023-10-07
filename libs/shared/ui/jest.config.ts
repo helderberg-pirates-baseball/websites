@@ -1,9 +1,9 @@
 /* eslint-disable */
 export default {
-  displayName: 'hpb-client',
-  preset: '../../jest.preset.js',
+  displayName: 'shared-ui',
+  preset: '../../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
-  coverageDirectory: '../../coverage/apps/hpb-client',
+  coverageDirectory: '../../../coverage/libs/shared/ui',
   transform: {
     '^.+\\.(ts|mjs|js|html)$': [
       'jest-preset-angular',

@@ -56,7 +56,7 @@ jobs:
       - name: Test
         env:
           NX_CLOUD_ACCESS_TOKEN: ${{ secrets.NX_CLOUD_ACCESS_TOKEN }}
-        run: npx nx run-many --targets=test --all --parallel --maxParallel=3
+        run: npx nx run-many --targets=test --all --configuration=ci --parallel --maxParallel=3
 
       - name: Codecov
         uses: codecov/codecov-action@v3.1.4
