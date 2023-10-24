@@ -18,7 +18,8 @@
         "assets": [
           "apps/hpb-client/src/favicon.ico",
           "apps/hpb-client/src/assets",
-          "apps/hpb-client/src/manifest.webmanifest"
+          "apps/hpb-client/src/manifest.webmanifest",
+          "apps/hpb-client/src/staticwebapp.config.json"
         ],
         "styles": ["libs/shared/styles/src/lib/theme.scss", "apps/hpb-client/src/styles.scss"],
         "scripts": [],
