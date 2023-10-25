@@ -17,9 +17,13 @@
         "tsConfig": "apps/hpb-client/tsconfig.app.json",
         "assets": [
           "apps/hpb-client/src/favicon.ico",
-          "apps/hpb-client/src/assets",
           "apps/hpb-client/src/manifest.webmanifest",
-          "apps/hpb-client/src/staticwebapp.config.json"
+          "apps/hpb-client/src/staticwebapp.config.json",
+          {
+            "glob": "**/*",
+            "input": "apps/hpb-client/src/assets",
+            "output": "/assets"
+          }
         ],
         "styles": ["libs/shared/styles/src/lib/theme.scss", "apps/hpb-client/src/styles.scss"],
         "scripts": [],
