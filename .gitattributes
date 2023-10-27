@@ -22,11 +22,11 @@
 *.coffee          text
 *.css             text diff=css
 *.htm             text diff=html
-*.html            text diff=html
+*.html            text eol=lf diff=html
 *.inc             text
 *.ini             text
 *.js              text
-*.json            text
+*.json            text eol=lf
 *.jsx             text
 *.less            text
 *.ls              text
@@ -40,13 +40,13 @@
 *.rb              text diff=ruby
 *.sass            text
 *.scm             text
-*.scss            text diff=css
+*.scss            text eol=lf diff=css
 *.sh              text eol=lf
 .husky/*          text eol=lf
 *.sql             text
 *.styl            text
 *.tag             text
-*.ts              text
+*.ts              text eol=lf
 *.tsx             text
 *.xml             text
 *.xhtml           text diff=html
@@ -122,6 +122,7 @@ Makefile          text
 makefile          text
 # Fixes syntax highlighting on GitHub to allow comments
 tsconfig.json     linguist-language=JSON-with-Comments
+tsconfig.*.json   linguist-language=JSON-with-Comments
 
 # Heroku
 Procfile          text
