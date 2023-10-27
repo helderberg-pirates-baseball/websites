@@ -23,6 +23,11 @@
             "glob": "**/*",
             "input": "apps/hpb-client/src/assets",
             "output": "/assets"
+          },
+          {
+            "glob": "**/*",
+            "input": "libs/pages/landing/src/assets",
+            "output": "/assets"
           }
         ],
         "styles": ["libs/shared/styles/src/lib/theme.scss", "apps/hpb-client/src/styles.scss"],
