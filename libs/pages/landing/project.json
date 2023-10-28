@@ -1,0 +1,51 @@
+{
+  "name": "pages-landing",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/pages/landing/src",
+  "prefix": "hpb-landing",
+  "tags": [],
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nx/angular:ng-packagr-lite",
+      "outputs": ["{workspaceRoot}/dist/{projectRoot}"],
+      "options": {
+        "project": "libs/pages/landing/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "libs/pages/landing/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "libs/pages/landing/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "libs/pages/landing/jest.config.ts",
+        "passWithNoTests": true
+      },
+      "configurations": {
+        "ci": {
+          "ci": true,
+          "codeCoverage": true
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "libs/pages/landing/**/*.ts",
+          "libs/pages/landing/**/*.html",
+          "libs/pages/landing/package.json"
+        ]
+      }
+    }
+  }
+}

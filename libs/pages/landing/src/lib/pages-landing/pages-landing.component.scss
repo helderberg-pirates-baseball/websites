@@ -1,0 +1,24 @@
+.landing {
+  min-height: 100vh;
+  text-align: center;
+
+  section {
+    display: flex;
+    gap: 2rem;
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+    }
+
+    div {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+  }
+
+  img {
+    max-height: 250px;
+    object-fit: contain;
+  }
+}
