@@ -10,4 +10,8 @@ export const appRoutes: Route[] = [
     redirectTo: 'home',
     pathMatch: 'full',
   },
+  {
+    path: '**',
+    loadComponent: () => import('@helderberg-pirates-baseball/pages/not-found').then((m) => m.NotFoundComponent),
+  },
 ];

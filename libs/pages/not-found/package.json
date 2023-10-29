@@ -1,0 +1,12 @@
+{
+  "name": "@helderberg-pirates-baseball/pages/not-found",
+  "version": "0.0.1",
+  "peerDependencies": {
+    "@angular/common": "^16.2.0",
+    "@angular/core": "^16.2.0",
+    "@angular/material": "16.2.9",
+    "@angular/router": "16.2.10"
+  },
+  "dependencies": {},
+  "sideEffects": false
+}

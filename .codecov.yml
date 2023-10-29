@@ -18,7 +18,31 @@ coverage:
       hpb-client:
         flags:
           - hpb-client
+      hpb-shared-styles:
+        flags:
+          - hpb-shared-styles
+      hpb-shared-ui:
+        flags:
+          - hpb-shared-ui
+      hpb-pages-landing:
+        flags:
+          - hpb-pages-landing
+      hpb-pages-not-found:
+        flags:
+          - hpb-pages-not-found
 flags:
   hpb-client:
     paths:
       - apps/hpb-client
+  hpb-shared-styles:
+    paths:
+      - libs/shared/styles
+  hpb-shared-ui:
+    paths:
+      - libs/shared/ui
+  hpb-pages-landing:
+    paths:
+      - libs/pages/landing
+  hpb-pages-not-found:
+    paths:
+      - libs/pages/not-found
