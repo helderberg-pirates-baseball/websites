@@ -6,8 +6,8 @@ import { MatCardModule } from '@angular/material/card';
 @Component({
   standalone: true,
   imports: [CommonModule, MatButtonModule, MatCardModule],
-  templateUrl: './pages-landing.component.html',
-  styleUrls: ['./pages-landing.component.scss'],
+  templateUrl: './landing.component.html',
+  styleUrls: ['./landing.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class PagesLandingComponent {}
+export class LandingComponent {}

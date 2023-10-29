@@ -1,5 +1,5 @@
 import { Route } from '@angular/router';
 
-import { PagesLandingComponent } from './pages-landing/pages-landing.component';
+import { LandingComponent } from './landing.component';
 
-export const pagesLandingRoutes: Route[] = [{ path: '', component: PagesLandingComponent }];
+export const pagesLandingRoutes: Route[] = [{ path: '', component: LandingComponent }];
