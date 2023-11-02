@@ -1,15 +1,6 @@
-<mat-toolbar color="primary">
-  <mat-toolbar-row>
-    <span>Helderberg Pirates</span>
-    <span class="spacer"></span>
-    <hpb-ui-icon-menu [ariaLabel]="'Settings menu'">
-      <span mat-menu-item disabled>Settings</span>
-      <span mat-menu-item (click)="$event.stopPropagation()">
-        <mat-slide-toggle [(ngModel)]="darkMode">Dark Mode</mat-slide-toggle>
-      </span>
-    </hpb-ui-icon-menu>
-  </mat-toolbar-row>
-</mat-toolbar>
+<div class="header">
+  <router-outlet name="header"></router-outlet>
+</div>
 
 <div class="container">
   <router-outlet></router-outlet>

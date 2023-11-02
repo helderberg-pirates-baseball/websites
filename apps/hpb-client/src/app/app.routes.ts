@@ -1,6 +1,15 @@
 import { Route } from '@angular/router';
 
+const outlets: Route[] = [
+  {
+    outlet: 'header',
+    path: '',
+    loadComponent: () => import('./header/header.component').then((m) => m.HeaderComponent),
+  },
+];
+
 export const appRoutes: Route[] = [
+  ...outlets,
   {
     path: '',
     redirectTo: 'home',
