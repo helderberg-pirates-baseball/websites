@@ -4,7 +4,6 @@ import { FormsModule } from '@angular/forms';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatToolbarModule } from '@angular/material/toolbar';
-
 import { HpbThemeService } from '@helderberg-pirates-baseball/shared/styles';
 import { IconMenuComponent } from '@helderberg-pirates-baseball/shared/ui';
 

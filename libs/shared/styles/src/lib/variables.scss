@@ -19,6 +19,10 @@ $dark-theme: mat.define-dark-theme(
   )
 );
 
+$primary: mat.get-color-from-palette($dark-theme, primary);
+$accent: mat.get-color-from-palette($dark-theme, accent);
+$warn: mat.get-color-from-palette($dark-theme, warn);
+
 // Define a light theme
 $light-theme: mat.define-light-theme(
   (
@@ -28,3 +32,7 @@ $light-theme: mat.define-light-theme(
     ),
   )
 );
+
+$light-primary: mat.get-color-from-palette($light-theme, primary);
+$light-accent: mat.get-color-from-palette($light-theme, accent);
+$light-warn: mat.get-color-from-palette($light-theme, warn);

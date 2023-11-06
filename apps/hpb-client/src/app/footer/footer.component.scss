@@ -1,0 +1,27 @@
+@import 'libs/shared/styles/src/lib/variables';
+
+.footer {
+  background-color: $primary;
+  color: $accent;
+  display: flex;
+  flex-direction: row;
+}
+
+.light-theme .footer {
+  background-color: $light-primary;
+  color: $light-accent;
+}
+
+.toolbar-spacer {
+  flex: 1;
+}
+
+.socials {
+  display: flex;
+  gap: 0.2em;
+  font-size: 2em;
+
+  a {
+    color: var(--accent);
+  }
+}
