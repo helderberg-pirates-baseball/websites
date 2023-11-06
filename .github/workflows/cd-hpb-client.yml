@@ -11,6 +11,9 @@ jobs:
     runs-on: ubuntu-latest
     name: Build and Deploy Job
     steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
       - name: Prepare
         uses: ./.github/actions/install-deps
 

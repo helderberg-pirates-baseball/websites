@@ -13,6 +13,11 @@ jobs:
     name: '[Nx] Run Affected'
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Fetch all branches and commits so that Nx affected has a base to compare against
+
       - name: Prepare
         uses: ./.github/actions/install-deps
 
@@ -26,6 +31,11 @@ jobs:
     name: '[Nx] Test All'
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Fetch all branches and commits so that Nx affected has a base to compare against
+
       - name: Prepare
         uses: ./.github/actions/install-deps
 
