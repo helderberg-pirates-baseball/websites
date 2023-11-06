@@ -1,0 +1,28 @@
+name: 'Install Deps'
+description: 'Install dependencies and set NX cache'
+runs:
+  using: "composite"
+  steps:
+    - uses: volta-cli/action@v4
+      with:
+        package-json-path: '${{ github.workspace }}/package.json'
+
+    - name: Use NX cache if available
+      uses: actions/cache@v3
+      with:
+        path: tmp/cache
+        key: ${{ runner.os }}-nx
+        restore-keys: |
+          ${{ runner.os }}-nx
+
+    - name: Use the package manager cache if available
+      uses: actions/cache@v3
+      with:
+        path: ~/.npm
+        key: ${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
+        restore-keys: |
+          ${{ runner.os }}-
+
+    - name: Install dependencies
+      shell: bash
+      run: npm ci

@@ -5,10 +5,10 @@
   },
   "tasksRunnerOptions": {
     "default": {
-      "runner": "nx-cloud",
+      "runner": "nx/tasks-runners/default",
       "options": {
         "cacheableOperations": ["build", "lint", "test", "e2e"],
-        "accessToken": ""
+        "cacheDirectory": "tmp/cache"
       }
     }
   },
@@ -59,7 +59,8 @@
     },
     "@nx/angular:library": {
       "linter": "eslint",
-      "unitTestRunner": "jest"
+      "unitTestRunner": "jest",
+      "style": "scss"
     },
     "@nx/angular:component": {
       "style": "scss"

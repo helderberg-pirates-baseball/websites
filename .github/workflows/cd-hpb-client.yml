@@ -11,25 +11,13 @@ jobs:
     runs-on: ubuntu-latest
     name: Build and Deploy Job
     steps:
-      - uses: actions/checkout@v4
-        with:
-          submodules: true
-          fetch-depth: 0
+      - name: Checkout repo
+        uses: actions/checkout@v4
 
-      - name: Use the package manager cache if available
-        uses: actions/cache@v3
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-
-
-      - name: Install dependencies
-        run: npm ci
+      - name: Prepare
+        uses: ./.github/actions/install-deps
 
       - name: Build App
-        env:
-          NX_CLOUD_ACCESS_TOKEN: ${{ secrets.NX_CLOUD_ACCESS_TOKEN }}
         run: |
           npx nx run hpb-client:build:production
 

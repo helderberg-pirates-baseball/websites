@@ -9,25 +9,23 @@ on:
       - main
 
 jobs:
-  main:
-    name: '[Nx] Main'
-    uses: nrwl/ci/.github/workflows/nx-cloud-main.yml@v0.13.1
-    secrets:
-      NX_CLOUD_ACCESS_TOKEN: ${{ secrets.NX_CLOUD_ACCESS_TOKEN }}
-    with:
-      number-of-agents: 3
-      parallel-commands: |
-        npx nx-cloud record -- npx nx format:check
-      parallel-commands-on-agents: |
-        npx nx affected -t lint --parallel=3 & npx nx affected -t test --parallel=3 --configuration=ci & npx nx affected -t build --parallel=3
+  run_affected:
+    name: '[Nx] Run Affected'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Fetch all branches and commits so that Nx affected has a base to compare against
 
-  agents:
-    name: '[Nx] Agents'
-    uses: nrwl/ci/.github/workflows/nx-cloud-agents.yml@v0.13.1
-    secrets:
-      NX_CLOUD_ACCESS_TOKEN: ${{ secrets.NX_CLOUD_ACCESS_TOKEN }}
-    with:
-      number-of-agents: 3
+      - name: Prepare
+        uses: ./.github/actions/install-deps
+
+      - name: 'Run lint,test,build on affected'
+        uses: mansagroup/nrwl-nx-action@v3
+        with:
+          targets: lint,test,build
+          affected: true
 
   test:
     name: '[Nx] Test All'
@@ -38,24 +36,10 @@ jobs:
         with:
           fetch-depth: 0 # Fetch all branches and commits so that Nx affected has a base to compare against
 
-      - uses: volta-cli/action@v4
-        with:
-          package-json-path: '${{ github.workspace }}/package.json'
-
-      - name: Use the package manager cache if available
-        uses: actions/cache@v3
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-
-
-      - name: Install dependencies
-        run: npm ci
+      - name: Prepare
+        uses: ./.github/actions/install-deps
 
       - name: Test
-        env:
-          NX_CLOUD_ACCESS_TOKEN: ${{ secrets.NX_CLOUD_ACCESS_TOKEN }}
         run: npx nx run-many --targets=test --all --configuration=ci --parallel --maxParallel=3
 
       - name: Codecov
