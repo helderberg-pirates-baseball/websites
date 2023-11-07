@@ -1,4 +1,4 @@
-import { TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { HpbThemeService } from '@helderberg-pirates-baseball/shared/styles';
 
@@ -7,6 +7,9 @@ import { AppComponent } from './app.component';
 import Mocked = jest.Mocked;
 
 describe('AppComponent', () => {
+  let fixture: ComponentFixture<AppComponent>;
+  let component: AppComponent;
+
   let hpbThemeSpy: Mocked<HpbThemeService>;
 
   beforeEach(async () => {
@@ -22,9 +25,12 @@ describe('AppComponent', () => {
     }).compileComponents();
   });
 
+  beforeEach(() => {
+    fixture = TestBed.createComponent(AppComponent);
+    component = fixture.componentInstance;
+  });
+
   it('should render', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    expect(fixture.componentInstance).toBeTruthy();
+    expect(component).toBeTruthy();
   });
 });
