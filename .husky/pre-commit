@@ -1,4 +1,5 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
-npx lint-staged
+npx nx affected:lint --parallel --fix
+npx nx format:write --uncommitted
