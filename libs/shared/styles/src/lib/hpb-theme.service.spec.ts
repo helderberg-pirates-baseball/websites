@@ -7,7 +7,6 @@ describe('HpbThemeService', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-
     service = TestBed.inject(HpbThemeService);
   });
 

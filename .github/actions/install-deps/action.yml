@@ -11,8 +11,10 @@ runs:
       uses: actions/cache@v3
       with:
         path: tmp/cache
-        key: ${{ runner.os }}-nx
+        key: ${{ runner.os }}-nx-${{ hashFiles('**/package-lock.json') }}-${{ hashFiles('libs/**/src/**') }}-${{ hashFiles('apps/**/src/**') }}
         restore-keys: |
+          ${{ runner.os }}-nx-${{ hashFiles('**/package-lock.json') }}-${{ hashFiles('libs/**/src/**') }}
+          ${{ runner.os }}-nx-${{ hashFiles('**/package-lock.json') }}
           ${{ runner.os }}-nx
 
     - name: Use the package manager cache if available

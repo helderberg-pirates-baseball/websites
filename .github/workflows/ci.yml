@@ -20,8 +20,13 @@ jobs:
       - name: Prepare
         uses: ./.github/actions/install-deps
 
-      - name: 'Run lint,test,build on affected'
+      - name: 'Check affected from main'
+        if: github.event_name == 'pull_request'
         run: npx nx affected --target=lint,test,build --parallel --maxParallel=3 --base=origin/main --head=HEAD
+
+      - name: 'Check affected from last commit'
+        if: github.event_name == 'push'
+        run: npx nx affected --target=lint,test,build --parallel --maxParallel=3 --base=HEAD~1 --head=HEAD
 
   test:
     name: '[Nx] Test All'

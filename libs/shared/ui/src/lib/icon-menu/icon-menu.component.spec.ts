@@ -10,10 +10,11 @@ describe('IconMenuComponent', () => {
     await TestBed.configureTestingModule({
       imports: [IconMenuComponent],
     }).compileComponents();
+  });
 
+  beforeEach(() => {
     fixture = TestBed.createComponent(IconMenuComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
   });
 
   it('should create', () => {
