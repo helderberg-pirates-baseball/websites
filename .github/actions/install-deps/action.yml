@@ -1,13 +1,19 @@
 name: 'Install Deps'
 description: 'Install dependencies and set NX cache'
+outputs:
+  nx-cache-hit:
+    description: 'Whether the nx cache was hit or not'
+    value: ${{ steps.nx_cache.outputs.cache-hit }}
+
 runs:
-  using: "composite"
+  using: 'composite'
   steps:
     - uses: volta-cli/action@v4
       with:
         package-json-path: '${{ github.workspace }}/package.json'
 
     - name: Use NX cache if available
+      id: nx_cache
       uses: actions/cache@v3
       with:
         path: tmp/cache

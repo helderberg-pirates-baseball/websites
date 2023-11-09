@@ -1,15 +1,57 @@
-name: CD hpb-client
-
+name: 'CI/CD'
 on:
   push:
     branches:
       - main
       - staging
+  pull_request:
+    branches:
+      - main
 
 jobs:
+  prep_cache:
+    name: '[Nx] Prepare Cache'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Prepare
+        id: prep
+        uses: ./.github/actions/install-deps
+
+      - name: Run all
+        if: prep.outputs.nx-cache-hit == 'false'
+        run: npx nx run-many --targets=lint,test,build --all --configuration=ci --parallel --maxParallel=3
+
+  test:
+    name: '[Nx] Test All'
+    runs-on: ubuntu-latest
+    needs: prep_cache
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Fetch all branches and commits so that Nx affected has a base to compare against
+
+      - name: Prepare
+        uses: ./.github/actions/install-deps
+
+      - name: Test
+        run: npx nx run-many --targets=test --all --configuration=ci --parallel --maxParallel=3
+
+      - name: Codecov
+        uses: codecov/codecov-action@v3.1.4
+        if: hashFiles('coverage/**/*') != ''
+        with:
+          fail_ci_if_error: true
+          verbose: true
+
   build_and_deploy_job:
     runs-on: ubuntu-latest
     name: Build and Deploy Job
+    needs: prep_cache
+    if: github.event_name == 'push'
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
