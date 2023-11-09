@@ -21,7 +21,7 @@ jobs:
         uses: ./.github/actions/install-deps
 
       - name: Run all
-        if: prep.outputs.nx-cache-hit == 'false'
+        if: steps.prep.outputs.nx-cache-hit == 'false'
         run: npx nx run-many --targets=lint,test,build --all --configuration=ci --parallel --maxParallel=3
 
   test:
