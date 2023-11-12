@@ -29,8 +29,6 @@ export class HpbThemeService {
     }
   }
 
-  prop = 'something';
-
   init(): HpbTheme {
     const theme = this.getTheme();
     this.setTheme(theme);
