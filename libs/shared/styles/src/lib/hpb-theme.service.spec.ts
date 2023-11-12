@@ -15,6 +15,6 @@ describe('HpbThemeService', () => {
   });
 
   it('should fail', () => {
-    expect(service.prop).toBe('nothing');
+    expect(service.prop).toBe('something');
   });
 });
