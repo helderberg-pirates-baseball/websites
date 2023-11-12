@@ -13,4 +13,8 @@ describe('HpbThemeService', () => {
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
+
+  it('should fail', () => {
+    expect(service.prop).toBe('nothing');
+  });
 });
