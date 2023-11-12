@@ -33,8 +33,4 @@ describe('AppComponent', () => {
   it('should render', () => {
     expect(component).toBeTruthy();
   });
-
-  it('should be false', () => {
-    expect(false).toBeTruthy();
-  });
 });
