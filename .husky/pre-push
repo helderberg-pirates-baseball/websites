@@ -6,11 +6,20 @@ old_stash=$(git rev-parse -q --verify refs/stash)
 git stash -q
 new_stash=$(git rev-parse -q --verify refs/stash)
 
+popStash() {
+  if [ "$old_stash" != "$new_stash" ]; then
+    git stash pop -q
+    echo "Stashed changes popped."
+  fi
+
+  return 0;
+}
+
 echo "Running pre-push hook..."
 echo "Checking code formatting..."
 npx nx format:check || ( \
   echo "Code formatting failed, run 'npx nx format:write' to fix it." && \
-  ([ "$old_stash" != "$new_stash" ] && git stash pop -q || 0) && \
+  popStash && \
   exit 1 \
 )
 
@@ -19,9 +28,10 @@ echo "Code formatting check completed."
 echo "Checking affected projects lint, test and build targets..."
 npx nx affected -t lint test build || ( \
   echo "Affected projects lint, test and build targets failed." && \
-  ([ "$old_stash" != "$new_stash" ] && git stash pop -q || 0) && \
+  popStash && \
   exit 1 \
 )
 
 echo "Affected projects lint, test and build targets completed successfully."
-[ "$old_stash" != "$new_stash" ] && git stash pop -q
+popStash
+echo "Pre-push hook completed successfully."
