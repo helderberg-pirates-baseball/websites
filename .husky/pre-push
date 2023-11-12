@@ -2,4 +2,4 @@
 . "$(dirname -- "$0")/_/husky.sh"
 
 npx nx format:check
-npx nx run-many --targets=lint,test,build --affected --parallel
+npx nx affected -t lint test build
