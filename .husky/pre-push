@@ -1,10 +1,25 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
+echo "Stashing uncommitted changes..."
+git stash -q || (echo "Failed to stash uncommitted changes." && exit 1)
+
+echo "Running pre-push hook..."
 echo "Checking code formatting..."
-echo "If this fails, run 'npx nx format:write' to fix it."
-npx nx format:check
+npx nx format:check || ( \
+  echo "Code formatting failed, run 'npx nx format:write' to fix it." && \
+  git stash pop -q && \
+  exit 1 \
+)
 
 echo "Code formatting check completed."
+
 echo "Checking affected projects lint, test and build targets..."
-npx nx affected -t lint test build
+npx nx affected -t lint test build || ( \
+  echo "Affected projects lint, test and build targets failed." && \
+  git stash pop -q && \
+  exit 1 \
+)
+
+echo "Affected projects lint, test and build targets completed successfully."
+git stash pop -q
