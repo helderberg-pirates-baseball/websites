@@ -25,4 +25,3 @@ npx nx affected -t lint test build || ( \
 
 echo "Affected projects lint, test and build targets completed successfully."
 [ "$old_stash" != "$new_stash" ] && git stash pop -q
-exit 1
