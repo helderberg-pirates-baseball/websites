@@ -19,7 +19,7 @@ import { IconMenuComponent } from '@helderberg-pirates-baseball/shared/ui';
     IconMenuComponent,
     MatMenuModule,
     MatSlideToggleModule,
-    FormsModule,
+    FormsModule
   ],
   selector: 'helderberg-pirates-baseball-root',
   templateUrl: './app.component.html',
