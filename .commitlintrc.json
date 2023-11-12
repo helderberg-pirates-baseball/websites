@@ -1,7 +1,0 @@
-{
-  "extends": ["@commitlint/config-conventional", "@commitlint/config-nx-scopes"],
-  "rules": {
-    "body-max-line-length": [0, "always"],
-    "scope-enum": [2, "always", ["hpb-client", "workflows", "docs", "shared-ui", "libs"]]
-  }
-}
