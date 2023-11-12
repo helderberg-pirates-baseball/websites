@@ -1,5 +1,10 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
+echo "Checking code formatting..."
+echo "If this fails, run 'npx nx format:write' to fix it."
 npx nx format:check
+
+echo "Code formatting check completed."
+echo "Checking affected projects lint, test and build targets..."
 npx nx affected -t lint test build
