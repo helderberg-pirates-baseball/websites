@@ -37,7 +37,7 @@
     "@angular/cli": "16.2.10",
     "@angular/compiler-cli": "16.2.12",
     "@angular/language-service": "16.2.12",
-    "@angular/pwa": "^16.2.10",
+    "@angular/pwa": "^17.0.1",
     "@nx/eslint": "17.1.2",
     "@nx/eslint-plugin": "17.1.2",
     "@nx/jest": "17.1.2",
