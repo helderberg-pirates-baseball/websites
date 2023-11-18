@@ -1,6 +1,8 @@
 @import 'libs/shared/styles/src/lib/variables';
 
 .footer {
+  background-color: $primary-color;
+  color: $primary-contrast;
   display: flex;
   flex-direction: row;
 }
@@ -13,8 +15,9 @@
   display: flex;
   gap: 0.2em;
   font-size: 2em;
+  padding: 2rem;
 
   a {
-    color: var(--accent);
+    color: $primary-contrast;
   }
 }
