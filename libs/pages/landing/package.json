@@ -2,9 +2,9 @@
   "name": "@helderberg-pirates-baseball/pages-landing",
   "version": "0.0.1",
   "peerDependencies": {
-    "@angular/common": "^16.2.0",
-    "@angular/core": "^16.2.0",
-    "@angular/router": "~16.2.12",
+    "@angular/common": "^17.0.3",
+    "@angular/core": "^17.0.3",
+    "@angular/router": "~17.0.3",
     "@angular/material": "~16.2.12"
   },
   "dependencies": {},
