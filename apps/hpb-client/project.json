@@ -80,10 +80,10 @@
       "executor": "@angular-devkit/build-angular:dev-server",
       "configurations": {
         "production": {
-          "browserTarget": "hpb-client:build:production"
+          "buildTarget": "hpb-client:build:production"
         },
         "development": {
-          "browserTarget": "hpb-client:build:development"
+          "buildTarget": "hpb-client:build:development"
         }
       },
       "defaultConfiguration": "development"
@@ -91,7 +91,7 @@
     "extract-i18n": {
       "executor": "@angular-devkit/build-angular:extract-i18n",
       "options": {
-        "browserTarget": "hpb-client:build"
+        "buildTarget": "hpb-client:build"
       }
     },
     "lint": {
@@ -106,14 +106,11 @@
       "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
       "options": {
         "jestConfig": "apps/hpb-client/jest.config.ts",
-        "passWithNoTests": true,
         "codeCoverage": true
       },
       "configurations": {
         "ci": {
-          "coverageReporters": ["lcov"],
-          "ci": true,
-          "codeCoverage": true
+          "coverageReporters": ["lcov"]
         }
       }
     }
