@@ -28,6 +28,11 @@
       "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
       "options": {
         "jestConfig": "libs/pages/not-found/jest.config.ts"
+      },
+      "configurations": {
+        "ci": {
+          "coverageReporters": ["lcov"]
+        }
       }
     },
     "lint": {
