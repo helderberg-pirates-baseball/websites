@@ -1,6 +1,6 @@
 @import 'libs/shared/styles/src/lib/variables';
 
-.footer {
+:host {
   background-color: $primary-color;
   color: $primary-contrast;
   display: flex;
