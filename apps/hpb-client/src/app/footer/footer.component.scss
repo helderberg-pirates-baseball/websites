@@ -1,0 +1,33 @@
+@import 'libs/shared/styles/src/lib/variables';
+
+:host {
+  background-color: $primary-color;
+  color: $primary-contrast;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+  }
+}
+
+.toolbar-spacer {
+  flex: 1;
+}
+
+.socials {
+  display: flex;
+  gap: 0.2em;
+  font-size: 2em;
+  padding: 1rem;
+
+  a {
+    color: $primary-contrast;
+  }
+}
+
+.copy {
+  font-size: 1.2em;
+  padding: 15px;
+}
