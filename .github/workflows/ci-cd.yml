@@ -48,6 +48,7 @@ jobs:
         uses: codecov/codecov-action@v3.1.4
         if: hashFiles('coverage/**/*') != ''
         with:
+          directory: coverage
           fail_ci_if_error: true
           verbose: true
 
