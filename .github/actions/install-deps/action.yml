@@ -14,7 +14,7 @@ runs:
 
     - name: Use NX cache if available
       id: nx_cache
-      uses: actions/cache@v3
+      uses: actions/cache@v4
       with:
         path: tmp/cache
         key: ${{ runner.os }}-nx-${{ hashFiles('**/package-lock.json') }}-${{ hashFiles('libs/**/src/**') }}-${{ hashFiles('apps/**/src/**') }}
@@ -24,7 +24,7 @@ runs:
           ${{ runner.os }}-nx
 
     - name: Use the package manager cache if available
-      uses: actions/cache@v3
+      uses: actions/cache@v4
       with:
         path: ~/.npm
         key: ${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
