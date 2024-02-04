@@ -37,13 +37,8 @@
     },
     "lint": {
       "executor": "@nx/eslint:lint",
-      "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": [
-          "libs/pages/landing/**/*.ts",
-          "libs/pages/landing/**/*.html",
-          "libs/pages/landing/package.json"
-        ]
+        "lintFilePatterns": ["{projectRoot}/**/*.ts", "{projectRoot}/**/*.html", "{projectRoot}/package.json"]
       }
     }
   }
