@@ -1,11 +1,11 @@
 {
   "root": true,
   "ignorePatterns": ["**/*"],
-  "plugins": ["@nx", "prettier", "sonarjs", "unused-imports", "@typescript-eslint", "import"],
+  "plugins": ["@nx", "prettier", "unused-imports", "@typescript-eslint", "import"],
   "overrides": [
     {
       "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
-      "extends": ["eslint:recommended", "plugin:sonarjs/recommended"],
+      "extends": ["eslint:recommended"],
       "rules": {
         "@nx/enforce-module-boundaries": [
           "error",
