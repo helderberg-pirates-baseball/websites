@@ -49,6 +49,7 @@ jobs:
         if: hashFiles('coverage/**/*') != ''
         with:
           directory: coverage
+          token: ${{ secrets.CODECOV_TOKEN }} # required
           fail_ci_if_error: true
           verbose: true
 
