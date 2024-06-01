@@ -3,29 +3,29 @@
 
 @include mat.core();
 
-$primary-palette: mat.define-palette(mat.$indigo-palette);
-$accent-palette: mat.define-palette(mat.$grey-palette);
+$primary-palette: mat.m2-define-palette(mat.$m2-indigo-palette);
+$accent-palette: mat.m2-define-palette(mat.$m2-grey-palette);
 
 // Define a dark theme
-$dark-theme: mat.define-dark-theme(
+$dark-theme: mat.m2-define-dark-theme(
   (
     color: (
       primary: $primary-palette,
       accent: $accent-palette,
     ),
     // Only include `typography` and `density` in the default dark theme.
-    typography: mat.define-typography-config(),
+    typography: mat.m2-define-typography-config(),
     density: 0,
   )
 );
 
-$primary-color: mat.get-color-from-palette($primary-palette);
-$primary-contrast: mat.get-color-from-palette($primary-palette, default-contrast);
-$accent-color: mat.get-color-from-palette($accent-palette);
-$accent-contrast: mat.get-color-from-palette($accent-palette, default-contrast);
+$primary-color: mat.m2-get-color-from-palette($primary-palette);
+$primary-contrast: mat.m2-get-color-from-palette($primary-palette, default-contrast);
+$accent-color: mat.m2-get-color-from-palette($accent-palette);
+$accent-contrast: mat.m2-get-color-from-palette($accent-palette, default-contrast);
 
 // Define a light theme
-$light-theme: mat.define-light-theme(
+$light-theme: mat.m2-define-light-theme(
   (
     color: (
       primary: $primary-palette,
