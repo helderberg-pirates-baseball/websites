@@ -20,6 +20,8 @@ module.exports = {
     '^npx --no-install ng lint --fix$',
     '^npx --no-install nx migrate',
     '^rm -f migrations.json$',
+    '^rm -rf node_modules$',
+    '^rm -f package-lock.json$',
     '^npx --no-install nx run-many --target=lint --all --parallel --fix --skip-nx-cache$',
   ],
 };
